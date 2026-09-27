@@ -1,0 +1,99 @@
+.hero {
+  font-family: 'Press Start 2P', monospace;
+  min-height: 100vh;
+  position: relative;
+  background: #d8d8d8;
+  overflow: hidden;
+}
+
+.hero * {
+  font-family: 'Press Start 2P', monospace;
+}
+
+.hero-topbar {
+  width: 100%;
+  padding: 24px 40px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.health {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.health-bar {
+  width: 180px;
+  height: 18px;
+  border: 3px solid #111;
+}
+
+.health-fill {
+  width: 85%;
+  height: 100%;
+  background: #111;
+}
+
+.player {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.hero-content {
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-year {
+  font-size: 80px;
+  margin: 0;
+}
+
+.hero-title {
+  font-size: 64px;
+  margin: 10px 0 30px;
+}
+
+.hero-button {
+  padding: 18px 45px;
+
+  font-size: 16px;
+
+  background: #111;
+  color: white;
+
+  border: 4px solid #111;
+
+  cursor: pointer;
+
+  transition: transform 0.15s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-4px);
+}
+
+.hero-ground {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 70px;
+
+  background: #111;
+
+  border-top: 8px solid #555;
+}
