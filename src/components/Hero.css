@@ -1,99 +1,514 @@
+/* =========================================
+   HERO
+   ========================================= */
+
 .hero {
-  font-family: 'Press Start 2P', monospace;
-  min-height: 100vh;
   position: relative;
-  background: #d8d8d8;
+
+  min-height: 100vh;
+
   overflow: hidden;
+
+  background: #050505;
+
+  color: white;
+
+  font-family: 'Press Start 2P', monospace;
 }
 
-.hero * {
-  font-family: 'Press Start 2P', monospace;
-}
+
+/* =========================================
+   TOP HUD
+   ========================================= */
 
 .hero-topbar {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
   width: 100%;
-  padding: 24px 40px;
+
+  padding: 32px 55px;
+
   box-sizing: border-box;
 
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
+  z-index: 20;
 }
+
+
+/* HP */
 
 .health {
   display: flex;
+
   align-items: center;
-  gap: 10px;
+
+  gap: 18px;
+
+  color: #ff4fcf;
 
   font-size: 20px;
-  font-weight: bold;
 }
 
+
 .health-bar {
-  width: 180px;
-  height: 18px;
-  border: 3px solid #111;
+  width: 225px;
+
+  height: 25px;
+
+  border: 4px solid #35ff91;
+
+  box-sizing: border-box;
+
+  background: #111;
 }
+
 
 .health-fill {
   width: 85%;
+
   height: 100%;
-  background: #111;
+
+  background: #35ff91;
 }
+
+
+/* Player */
 
 .player {
+  color: #ff4fcf;
+
   font-size: 20px;
-  font-weight: bold;
+
+  letter-spacing: 1px;
 }
+
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
 
 .hero-content {
-  min-height: calc(100vh - 80px);
+  position: relative;
+
+  z-index: 10;
+
+  min-height: 100vh;
 
   display: flex;
+
   flex-direction: column;
-  align-items: center;
+
   justify-content: center;
+
+  align-items: center;
+
+  padding-bottom: 50px;
+
+  box-sizing: border-box;
 }
+
+
+/* =========================================
+   YEAR
+   ========================================= */
 
 .hero-year {
-  font-size: 80px;
   margin: 0;
+
+  color: #d7ff38;
+
+  font-size: clamp(50px, 7vw, 85px);
+
+  line-height: 1;
+
+  letter-spacing: 4px;
+
+  text-shadow:
+    7px 7px 0 #456fff;
 }
+
+
+/* =========================================
+   PORTFOLIO TITLE
+   ========================================= */
 
 .hero-title {
-  font-size: 64px;
-  margin: 10px 0 30px;
+  margin: 25px 0 50px;
+
+  color: #ff3fc7;
+
+  font-size: clamp(45px, 7vw, 85px);
+
+  line-height: 1;
+
+  letter-spacing: 2px;
+
+  text-shadow:
+    7px 7px 0 #18e9ff;
 }
 
+
+/* =========================================
+   START BUTTON
+   ========================================= */
+
 .hero-button {
-  padding: 18px 45px;
+  position: relative;
+
+  padding: 18px 42px;
+
+  background: #35ff91;
+
+  color: #050505;
+
+  border: 4px solid white;
+
+  font-family: 'Press Start 2P', monospace;
 
   font-size: 16px;
 
-  background: #111;
-  color: white;
-
-  border: 4px solid #111;
-
   cursor: pointer;
 
-  transition: transform 0.15s ease;
+  box-shadow:
+    8px 8px 0 #ff3fc7;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
+
 .hero-button:hover {
-  transform: translateY(-4px);
+  transform: translate(4px, 4px);
+
+  box-shadow:
+    4px 4px 0 #ff3fc7;
 }
+
+
+.hero-button:active {
+  transform: translate(8px, 8px);
+
+  box-shadow: none;
+}
+
+
+/* =========================================
+   CLOUDS
+   ========================================= */
+
+.cloud {
+  position: absolute;
+
+  width: 115px;
+
+  height: 28px;
+
+  background: #ff7ddd;
+
+  z-index: 2;
+}
+
+
+.cloud::before,
+.cloud::after {
+  content: '';
+
+  position: absolute;
+
+  background: #ff7ddd;
+}
+
+
+.cloud::before {
+  width: 45px;
+
+  height: 42px;
+
+  left: 20px;
+
+  bottom: 0;
+}
+
+
+.cloud::after {
+  width: 55px;
+
+  height: 52px;
+
+  left: 55px;
+
+  bottom: 0;
+}
+
+
+/* Cloud positions */
+
+.cloud-1 {
+  top: 200px;
+
+  left: 13%;
+}
+
+
+.cloud-2 {
+  top: 160px;
+
+  right: 35%;
+
+  transform: scale(0.65);
+}
+
+
+.cloud-3 {
+  top: 330px;
+
+  right: 12%;
+
+  transform: scale(0.8);
+}
+
+
+/* =========================================
+   CHARACTER
+   ========================================= */
+
+.hero-character {
+  position: absolute;
+
+  left: 21%;
+
+  bottom: 65px;
+
+  width: 110px;
+
+  z-index: 12;
+
+  image-rendering: pixelated;
+
+  image-rendering: crisp-edges;
+
+  filter: drop-shadow(0 0 8px rgba(255, 79, 207, 0.15));
+
+  animation: characterIdle 2.5s ease-in-out infinite;
+}
+
+
+@keyframes characterIdle {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================
+   STREET LAMP
+   ========================================= */
+
+.hero-lamp {
+  position: absolute;
+
+  left: 8%;
+
+  bottom: 65px;
+
+  width: 150px;
+
+  z-index: 11;
+
+  image-rendering: pixelated;
+
+  image-rendering: crisp-edges;
+}
+
+
+/* =========================================
+   TREE
+   ========================================= */
+
+.hero-tree {
+  position: absolute;
+
+  right: 7%;
+
+  bottom: 65px;
+
+  width: 280px;
+
+  z-index: 11;
+
+  image-rendering: pixelated;
+
+  image-rendering: crisp-edges;
+
+  filter: drop-shadow(0 0 10px rgba(24, 233, 255, 0.15));
+}
+
+
+/* =========================================
+   GROUND
+   ========================================= */
 
 .hero-ground {
   position: absolute;
 
+  left: 0;
+
   bottom: 0;
+
+  width: 100%;
+
+  height: 65px;
+
+  background: #4d55ff;
+
+  z-index: 15;
+
+  border-top: 0;
+}
+
+
+/* Cyan line */
+
+.ground-cyan {
+  position: absolute;
+
+  top: 0;
+
   left: 0;
 
   width: 100%;
-  height: 70px;
 
-  background: #111;
+  height: 9px;
 
-  border-top: 8px solid #555;
+  background: #18e9ff;
+}
+
+
+/* Pink line */
+
+.ground-pink {
+  position: absolute;
+
+  top: 9px;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 7px;
+
+  background: #ff3fc7;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  .hero-topbar {
+    padding: 25px 25px;
+  }
+
+  .health {
+    font-size: 14px;
+  }
+
+  .health-bar {
+    width: 150px;
+
+    height: 20px;
+  }
+
+  .player {
+    font-size: 14px;
+  }
+
+  .hero-character {
+    left: 15%;
+
+    width: 90px;
+  }
+
+  .hero-lamp {
+    left: 3%;
+
+    width: 120px;
+  }
+
+  .hero-tree {
+    right: 2%;
+
+    width: 220px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .hero-topbar {
+    padding: 20px 15px;
+  }
+
+  .health {
+    gap: 8px;
+
+    font-size: 10px;
+  }
+
+  .health-bar {
+    width: 100px;
+
+    height: 15px;
+
+    border-width: 3px;
+  }
+
+  .player {
+    font-size: 10px;
+  }
+
+  .hero-character {
+    left: 8%;
+
+    width: 70px;
+  }
+
+  .hero-lamp {
+    left: -10px;
+
+    width: 90px;
+  }
+
+  .hero-tree {
+    right: -25px;
+
+    width: 160px;
+  }
+
+  .hero-title {
+    margin-bottom: 35px;
+  }
+
 }

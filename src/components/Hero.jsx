@@ -1,10 +1,17 @@
 import './Hero.css'
 
+import character from '../assets/character.png'
+import tree from '../assets/tree.png'
+import lamp from '../assets/lamp.png'
+
 function Hero() {
   return (
     <section className="hero">
 
-      {/* Top HUD */}
+      {/* =========================
+          TOP GAME HUD
+          ========================= */}
+
       <div className="hero-topbar">
 
         {/* HP */}
@@ -24,7 +31,42 @@ function Hero() {
       </div>
 
 
-      {/* Main Hero Content */}
+      {/* =========================
+          CLOUDS
+          ========================= */}
+
+      <div className="cloud cloud-1"></div>
+      <div className="cloud cloud-2"></div>
+      <div className="cloud cloud-3"></div>
+
+
+      {/* =========================
+          HERO ENVIRONMENT
+          ========================= */}
+
+      <img
+        src={lamp}
+        alt="Pixel street lamp"
+        className="hero-lamp"
+      />
+
+      <img
+        src={character}
+        alt="Pixel player character"
+        className="hero-character"
+      />
+
+      <img
+        src={tree}
+        alt="Pixel tree"
+        className="hero-tree"
+      />
+
+
+      {/* =========================
+          MAIN TITLE
+          ========================= */}
+
       <div className="hero-content">
 
         <h1 className="hero-year">
@@ -42,8 +84,16 @@ function Hero() {
       </div>
 
 
-      {/* Ground */}
-      <div className="hero-ground"></div>
+      {/* =========================
+          GROUND
+          ========================= */}
+
+      <div className="hero-ground">
+
+        <div className="ground-cyan"></div>
+        <div className="ground-pink"></div>
+
+      </div>
 
     </section>
   )
